@@ -137,43 +137,46 @@ Query 9 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
 The United States leads with the highest death count, reflecting the pandemic's significant impact due to factors like population size and healthcare infrastructure. Brazil follows closely, highlighting the severity influenced by healthcare capacity and socioeconomic disparities. India's substantial death toll underscores the pandemic's impact, despite its large population. Other countries also face varying death counts, influenced by factors like healthcare capacity and government response. Interpreting these counts informs global strategies to combat the virus and allocate resources effectively.
 
-#### 10-1. Total Population vs Vaccinations
+#### 10. Covid Impact vs Age
 ##### GOAL
-This  Query Shows the Percentage of the Population that has received at least one COVID-19 vaccine
-##### Query
-Query 10-1 in the Project File [PROJECT  SQL File](Link)
-#####  Results Interpretation
-
-#### 10-2. Total Population vs Vaccinations Using CTE
-##### GOAL
-This  Query Shows the Percentage of the Population that has received at least one COVID vaccine using CTE
-##### Query
-Query 10-2 in the Project File [PROJECT  SQL File](Link)
-
-#### 10-3. Total Population vs Vaccinations Using TEMP TABLE
-##### GOAL
-This  Query Shows the Percentage of the Population that has received at least one COVID vaccine using TEMP TABLE
-##### Query
-Query 9-3 in the Project File [PROJECT  SQL File](Link)
-
-#### 11. Vaccination Tracking
-##### GOAL
-This  Query Shows the Rolling count of people vaccinated inserted in a view that could be used in later visualizations
+This  Query Shows the median age group of the population Impacted by COVID by country and for each year 
 ##### Query
 Query 10 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+The results reveal that the majority of individuals impacted by and deceased from COVID-19 have a median age that falls within two primary age brackets: "LESS THAN 40" and "BETWEEN 40 AND 65". This finding contrasts with the common perception that COVID-19 primarily affects older individuals. However, it suggests that while older age groups are indeed vulnerable, a significant proportion of cases and fatalities occur in younger and middle-aged populations, highlighting the importance of targeted interventions and preventive measures across all age demographics.
+
+#### 11-1.  Vaccinations VS Economic Situation
+##### GOAL
+This  Query Compares the Vaccinations status for each type of Economy using a double CTE, where the countries are categorized using the extreme poverty index and the  human development index, the categorization labels economic conditions as 'High Extreme Poverty' for extreme poverty rates >= 30%, 'Low Human Development Index' for human development index <= 0.5, and 'Moderate Economic Conditions' otherwise.
+##### Query
+Query 11-1 in the Project File [PROJECT  SQL File](Link)
+#####  Results Interpretation
+Moderate economic condition countries lead in vaccination efforts, receiving vaccines early in 2020 Compared to the high extreme poverty and low human development index countries who started vaccination campaigns in 2021, the results also show a significant acceleration in vaccination rates from 2021 to 2023. However, disparities persist, with lower rates in high extreme poverty and low human development index countries, possibly due to resource limitations. This underscores the need for equitable vaccine distribution strategies to address global health inequalities.
+
+#### 11-2. Total Population vs Vaccinations Using TEMP TABLE
+##### GOAL
+This  Query Shows the Percentage of the Population that has received at least one COVID vaccine using TEMP TABLE
+##### Query
+Query 11-2 in the Project File [PROJECT  SQL File](Link)
+
+#### 12. Vaccination Tracking
+##### GOAL
+This  Query Shows the Rolling count of people vaccinated inserted in a view that could be used in later visualizations
+##### Query
+Query 12 in the Project File [PROJECT  SQL File](Link)
+#####  Results Interpretation
 
 
-#### 12. Year to Year Total Cases Evolution
+#### 13. Year to Year Total Cases Evolution
 ##### GOAL
 This  Query Shows a comparison for each country of the total cases year by year using Windows functions 
 ##### Query
-Query 11 in the Project File [PROJECT  SQL File](Link)
+Query 13 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
 The query reveals a notable trend: a surge in COVID-19 cases across most countries in 2020 and 2021, followed by a decline in subsequent years. This suggests a shift from pandemic escalation to control, possibly due to effective vaccination campaigns and public health interventions as discovered in the previous interpretations.
 
 
-#### 13-1. Monthly Increase Status
+#### 14-1. Monthly Increase Status
 ##### GOAL
 This  Query Shows the count of months where the number of cases increased per country for each year
 ##### Query
@@ -184,19 +187,19 @@ Query 12 in the Project File [PROJECT  SQL File](Link)
 There appears to be a global decline in the query count of months where the number of cases increased. This is evidenced by the decreasing numbers across many countries over the years. This trend suggests that the occurrence of months with increasing case counts is decreasing globally.
 
 ######  Regional Variations:
-While there is an overall decline, there are variations in the trend across different regions. For example, countries in Africa show a consistent decrease over the years, indicating a sustained improvement in controlling the spread of the virus. However, countries in Europe and Asia exhibit fluctuations, with some years showing decreases and others showing increases in the query count.
+While there is an overall decline, there are variations in the trend across different regions. For example, countries in Africa have shown a consistent decrease over the years, indicating a sustained improvement in controlling the spread of the virus. However, countries in Europe and Asia exhibit fluctuations, with some years showing decreases and others showing increases in the query count.
 
 ###### Country-Specific Insights:
-Some countries consistently show a decrease in the query count, indicating a successful management of the pandemic over the years. Examples include New Zealand and Australia. Conversely, countries like Brazil and India demonstrate fluctuations, suggesting challenges in maintaining control over the spread of the virus.
+Some countries consistently show a decrease in the query count, indicating successful management of the pandemic over the years. Examples include New Zealand and Australia. Conversely, countries like Brazil and India demonstrate fluctuations, suggesting challenges in maintaining control over the spread of the virus.
 
 ###### Income Level Impact:
 There seems to be a correlation between income levels and the trend in query counts. High-income countries generally show a more consistent decrease, while low-income and lower-middle-income countries exhibit more fluctuations and higher query counts, indicating ongoing challenges in managing the pandemic.
 
 Outliers and Anomalies: Some countries show anomalies, with occasional spikes in the query count despite an overall decreasing trend. This could be due to various factors such as changes in government policies, the emergence of new variants, or local outbreaks.
 
-#### 13-2. Monthly Increase Status Optimised Query
+#### 14-2. Monthly Increase Status Optimised Query
 ##### GOAL
-This  Query Shows the count of months where the number of cases increased per country for each year using an optimized query using  the approx_set function  combined with the cardinality and merge  function instead of count Distinct using a probabilistic approach for faster results and lower resource consumption
+This  Query Shows the count of months where the number of cases increased per country for each year using an optimized query using  the approx_set function combined with the cardinality and merge  function instead of count Distinct using a probabilistic approach for faster results and lower resource consumption
 ##### Query
-Query 13 in the Project File [PROJECT  SQL File](Link)
+Query 14-2 in the Project File [PROJECT  SQL File](Link)
 
