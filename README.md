@@ -36,12 +36,11 @@ The data analyzed in this project are public data from [ourworldindata](https://
 
 #### 1. Data Exploration
 ##### GOAL
-This is a simple Query to Explore and discover the Dataset using a Select *
+This  Query is used to Explore and discover the Dataset using a Select *
 ##### Query
 Query 1 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
-This is Query simply allow to discover the columns of the tables 
-
+This Query simply illustrate the columns of the dataset 
 
 #### 2. Main Columns
 ##### GOAL
@@ -49,73 +48,115 @@ This is a simple Query to discover closely the main columns to be used for the A
 ##### Query
 Query 2 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
-This is Query simply allow to discover the important columns of the tables 
+This Query simply illustrate the most important columns of the dataset that we will use frequently for the rest of the analysis
 
-
-#### 3. Total Cases vs Total Deaths
+#### 3. Global numbers
 ##### GOAL
-This is a  Query Shows the likelihood of dying if you contract covid in your country
+This  Query Shows the death percentage on a global Scope
 ##### Query
 Query 3 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+The death rate of 0.90% suggests that while a significant number of cases were reported (774,561,579), the proportion of deaths relative to the total number of cases is relatively low. This could indicate that although the disease is widespread, it is not as fatal on average compared to some other diseases.
+However, it's crucial to consider other factors such as the demographics of the affected population, healthcare infrastructure, availability of treatments, and preventive measures taken.
 
 
-#### 4. Total Cases vs Total Deaths
+#### 4. Most Impacted Continents
 ##### GOAL
-This  Query Shows what percentage of population infected with Covid per each country
+This Query Shows the continents with the highest death count per population
 ##### Query
 Query 4 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+We have the total death count for each continent:
+North America: 1,170,784
+South America: 702,116
+Asia: 533,454
+Europe: 401,884
+Africa: 102,595
+Oceania: 24,566
+These Results suggest that the continents have experienced varying degrees of impact from the disease, with North and South America being among the hardest hit even though Asia has the highest population.
 
-
-#### 5. Country with Highest Infection rate 
+#### 5. Infection Percentage
 ##### GOAL
-This  Query Shows the countries with Highest Infection Rate compared to Population
+This  Query Shows what percentage of the population is infected with COVID per each country
 ##### Query
 Query 5 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+The Results Illustrate on a daily Level the Evolution of Covid infection throughout time, A common Trend is observed starting from the End of February for the majority of the countries with a high increase during 2020 AND 2021 followed by stability during 2023 and 2024
 
-#### 6. Countries with the Highest Death count 
+#### 6. US Total Cases vs Total Deaths 
 ##### GOAL
-This  Query Shows the Countries with the Highest Death Count per Population
+This  Query Shows the likelihood of dying if you contract COVID-19 in the United States
 ##### Query
-Query 5 in the Project File [PROJECT  SQL File](Link)
+Query 6 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+The analysis of the death rate in the United States over time reveals a significant fluctuation since the onset of the pandemic.
+Initially, following the first infections, the death rate experienced a sharp increase, reaching a peak of 8.69% in May 2020. This surge likely reflects the early stages of the pandemic when healthcare systems were overwhelmed, and effective treatments were limited.
+However, following this peak, there was a notable decline in the death rate over time. Since 2021, the death rate has consistently remained below 1%, indicating a significant improvement in managing the impact of the virus.
+The sustained decline in the death rate below 1% since 2021 reflects the success of vaccination efforts in mitigating the impact of the virus. It underscores the importance of continued vaccination initiatives to control the pandemic further and protect public health.
 
-#### 7. Most Impacted Continents
+#### 7. Countries with Highest Infection rate 
 ##### GOAL
-This  Query Shows the continents with the highest death count per population
+This  Query Shows the countries with the Highest Infection Rate compared to the Population
 ##### Query
 Query 7 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
 
-#### 8. Global numbers
+The analysis reveals several countries with remarkably high infection rates compared to their population sizes. For instance, Latvia, Niue, and Slovenia exhibit infection rates exceeding 40% of their populations.
+This data underscores the severity of the COVID-19 pandemic and the significant impact it has had on various nations worldwide.
+###### Factors Contributing to High Infection Rates:
+
+Several factors may have contributed to the high infection rates observed in these countries. These factors could include population density, healthcare infrastructure, adherence to preventive measures, and government response strategies.
+Additionally, factors such as international travel, population mobility, and socioeconomic disparities may have also played a role in the spread of the virus within these communities.
+###### Regional and Global Trends:
+
+The analysis highlights both regional and global trends in infection rates. Countries across Europe, Oceania, and the Americas appear prominently in the list, suggesting that the pandemic has affected regions worldwide.
+Furthermore, the presence of high infection rates in countries with varying income levels and healthcare systems emphasizes the universal impact of the pandemic and the challenges faced by nations in controlling its spread.
+###### Public Health Implications:
+
+High infection rates pose significant public health challenges, including strain on healthcare systems, increased mortality, and long-term health implications for affected individuals.
+Understanding the factors contributing to high infection rates can inform public health strategies aimed at mitigating the spread of the virus, including vaccination campaigns, targeted interventions in high-risk communities, and reinforcement of preventive measures.
+###### Data Limitations and Further Analysis:
+
+It's essential to consider potential limitations in the data, such as variations in testing capacities, reporting practices, and data accuracy across different countries.
+
+#### 8. Year To Year Infection rate 
 ##### GOAL
-This  Query Shows the death percentage on a global Scope
+This  Query Shows the evolution of the Infection Rate for each country year by year
 ##### Query
 Query 8 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+The observed trends in infection rates over the years highlight the dynamic nature of the pandemic response and the interplay between public health measures, vaccination efforts, and societal behaviors.
+The initial increase in infection rates in 2021 and 2022 underscores the importance of continued vigilance and adherence to safety measures even as vaccines become available,One plausible explanation is the relaxation of safety measures and restrictions that were initially effective in controlling the spread of the virus.
+The subsequent decrease in infection rates in 2023 and 2024 suggests the potential effectiveness of vaccination campaigns and the role of public trust in vaccines in controlling the spread of the virus.
 
-#### 9-1. Total Population vs Vaccinations
+#### 9. Countries with the Highest Death count 
 ##### GOAL
-This  Query Shows Percentage of Population that has recieved at least one Covid Vaccine
+This  Query Shows the Countries with the Highest Death Count per Population
 ##### Query
-Query 9-1 in the Project File [PROJECT  SQL File](Link)
+Query 9 in the Project File [PROJECT  SQL File](Link)
+#####  Results Interpretation
+The United States leads with the highest death count, reflecting the pandemic's significant impact due to factors like population size and healthcare infrastructure. Brazil follows closely, highlighting the severity influenced by healthcare capacity and socioeconomic disparities. India's substantial death toll underscores the pandemic's impact, despite its large population. Other countries also face varying death counts, influenced by factors like healthcare capacity and government response. Interpreting these counts informs global strategies to combat the virus and allocate resources effectively.
+
+#### 10-1. Total Population vs Vaccinations
+##### GOAL
+This  Query Shows the Percentage of the Population that has received at least one COVID-19 vaccine
+##### Query
+Query 10-1 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
 
-#### 9-2. Total Population vs Vaccinations Using CTE
+#### 10-2. Total Population vs Vaccinations Using CTE
 ##### GOAL
-This  Query Shows Percentage of Population that has recieved at least one Covid Vaccine using CTE
+This  Query Shows the Percentage of the Population that has received at least one COVID vaccine using CTE
 ##### Query
-Query 9-2 in the Project File [PROJECT  SQL File](Link)
+Query 10-2 in the Project File [PROJECT  SQL File](Link)
 
-#### 9-3. Total Population vs Vaccinations Using TEMP TABLE
+#### 10-3. Total Population vs Vaccinations Using TEMP TABLE
 ##### GOAL
-This  Query Shows Percentage of Population that has recieved at least one Covid Vaccine using TEMP TABLZ
+This  Query Shows the Percentage of the Population that has received at least one COVID vaccine using TEMP TABLE
 ##### Query
 Query 9-3 in the Project File [PROJECT  SQL File](Link)
 
-#### 10. Vaccination Tracking
+#### 11. Vaccination Tracking
 ##### GOAL
 This  Query Shows the Rolling count of people vaccinated inserted in a view that could be used in later visualizations
 ##### Query
@@ -123,24 +164,39 @@ Query 10 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
 
 
-#### 11. Year to Year Total Cases Evolution
+#### 12. Year to Year Total Cases Evolution
 ##### GOAL
 This  Query Shows a comparison for each country of the total cases year by year using Windows functions 
 ##### Query
 Query 11 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+The query reveals a notable trend: a surge in COVID-19 cases across most countries in 2020 and 2021, followed by a decline in subsequent years. This suggests a shift from pandemic escalation to control, possibly due to effective vaccination campaigns and public health interventions as discovered in the previous interpretations.
 
-#### 12-1. Year to Year Total Cases Evolution
-##### GOAL
-This  Query Shows a comparison for each country of the total cases year by year using Windows functions 
-##### Query
-Query 11 in the Project File [PROJECT  SQL File](Link)
-#####  Results Interpretation
 
-#### 12-2. Year to Year Total Cases Evolution
+#### 13-1. Monthly Increase Status
 ##### GOAL
-This  Query Shows a comparison for each country of the total cases year by year using Windows functions 
+This  Query Shows the count of months where the number of cases increased per country for each year
 ##### Query
 Query 12 in the Project File [PROJECT  SQL File](Link)
 #####  Results Interpretation
+
+###### Global Decline: 
+There appears to be a global decline in the query count of months where the number of cases increased. This is evidenced by the decreasing numbers across many countries over the years. This trend suggests that the occurrence of months with increasing case counts is decreasing globally.
+
+######  Regional Variations:
+While there is an overall decline, there are variations in the trend across different regions. For example, countries in Africa show a consistent decrease over the years, indicating a sustained improvement in controlling the spread of the virus. However, countries in Europe and Asia exhibit fluctuations, with some years showing decreases and others showing increases in the query count.
+
+###### Country-Specific Insights:
+Some countries consistently show a decrease in the query count, indicating a successful management of the pandemic over the years. Examples include New Zealand and Australia. Conversely, countries like Brazil and India demonstrate fluctuations, suggesting challenges in maintaining control over the spread of the virus.
+
+###### Income Level Impact:
+There seems to be a correlation between income levels and the trend in query counts. High-income countries generally show a more consistent decrease, while low-income and lower-middle-income countries exhibit more fluctuations and higher query counts, indicating ongoing challenges in managing the pandemic.
+
+Outliers and Anomalies: Some countries show anomalies, with occasional spikes in the query count despite an overall decreasing trend. This could be due to various factors such as changes in government policies, the emergence of new variants, or local outbreaks.
+
+#### 13-2. Monthly Increase Status Optimised Query
+##### GOAL
+This  Query Shows the count of months where the number of cases increased per country for each year using an optimized query using  the approx_set function  combined with the cardinality and merge  function instead of count Distinct using a probabilistic approach for faster results and lower resource consumption
+##### Query
+Query 13 in the Project File [PROJECT  SQL File](Link)
 
