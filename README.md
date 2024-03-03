@@ -39,6 +39,8 @@ The data analyzed in this project are public data from [ourworldindata](https://
 This  Query is used to Explore and discover the Dataset using a Select *
 ##### Query
 Query 1 in the Project File [PROJECT  SQL File](Link)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/c6b6e0d3-bf38-440f-95f5-5c40e56cbba4)
 #####  Results Interpretation
 This Query simply illustrate the columns of the dataset 
 
@@ -47,6 +49,9 @@ This Query simply illustrate the columns of the dataset
 This is a simple Query to discover closely the main columns to be used for the Analysis
 ##### Query
 Query 2 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/0b493f01-8fa2-421e-9054-8cbb134163ca)
+
 #####  Results Interpretation
 This Query simply illustrate the most important columns of the dataset that we will use frequently for the rest of the analysis
 
@@ -55,6 +60,8 @@ This Query simply illustrate the most important columns of the dataset that we w
 This  Query Shows the death percentage on a global Scope
 ##### Query
 Query 3 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/9e001084-ae23-4ef7-b2bd-56b76bbf0b68)
 #####  Results Interpretation
 The death rate of 0.90% suggests that while a significant number of cases were reported (774,561,579), the proportion of deaths relative to the total number of cases is relatively low. This could indicate that although the disease is widespread, it is not as fatal on average compared to some other diseases.
 However, it's crucial to consider other factors such as the demographics of the affected population, healthcare infrastructure, availability of treatments, and preventive measures taken.
@@ -65,14 +72,9 @@ However, it's crucial to consider other factors such as the demographics of the 
 This Query Shows the continents with the highest death count per population
 ##### Query
 Query 4 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/49065561-fab6-4333-adeb-1d3e50559ae1)
 #####  Results Interpretation
-We have the total death count for each continent:
-North America: 1,170,784
-South America: 702,116
-Asia: 533,454
-Europe: 401,884
-Africa: 102,595
-Oceania: 24,566
 These Results suggest that the continents have experienced varying degrees of impact from the disease, with North and South America being among the hardest hit even though Asia has the highest population.
 
 #### 5. Infection Percentage
@@ -80,6 +82,8 @@ These Results suggest that the continents have experienced varying degrees of im
 This  Query Shows what percentage of the population is infected with COVID per each country
 ##### Query
 Query 5 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/773f98ec-ceda-401a-8f21-7879b1e71346)
 #####  Results Interpretation
 The Results Illustrate on a daily Level the Evolution of Covid infection throughout time, A common Trend is observed starting from the End of February for the majority of the countries with a high increase during 2020 AND 2021 followed by stability during 2023 and 2024
 
@@ -88,6 +92,8 @@ The Results Illustrate on a daily Level the Evolution of Covid infection through
 This  Query Shows the likelihood of dying if you contract COVID-19 in the United States
 ##### Query
 Query 6 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/39a9bcb2-0391-4ac9-a1a9-f1e7af0889d6)
 #####  Results Interpretation
 The analysis of the death rate in the United States over time reveals a significant fluctuation since the onset of the pandemic.
 Initially, following the first infections, the death rate experienced a sharp increase, reaching a peak of 8.69% in May 2020. This surge likely reflects the early stages of the pandemic when healthcare systems were overwhelmed, and effective treatments were limited.
@@ -99,8 +105,9 @@ The sustained decline in the death rate below 1% since 2021 reflects the success
 This  Query Shows the countries with the Highest Infection Rate compared to the Population
 ##### Query
 Query 7 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/f07517ea-7617-4b99-a3a8-42ec7f23f608)
 #####  Results Interpretation
-
 The analysis reveals several countries with remarkably high infection rates compared to their population sizes. For instance, Latvia, Niue, and Slovenia exhibit infection rates exceeding 40% of their populations.
 This data underscores the severity of the COVID-19 pandemic and the significant impact it has had on various nations worldwide.
 ###### Factors Contributing to High Infection Rates:
@@ -124,6 +131,8 @@ It's essential to consider potential limitations in the data, such as variations
 This  Query Shows the evolution of the Infection Rate for each country year by year
 ##### Query
 Query 8 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/9ab506c3-0929-4919-8781-c1636df7103d)
 #####  Results Interpretation
 The observed trends in infection rates over the years highlight the dynamic nature of the pandemic response and the interplay between public health measures, vaccination efforts, and societal behaviors.
 The initial increase in infection rates in 2021 and 2022 underscores the importance of continued vigilance and adherence to safety measures even as vaccines become available,One plausible explanation is the relaxation of safety measures and restrictions that were initially effective in controlling the spread of the virus.
@@ -134,6 +143,8 @@ The subsequent decrease in infection rates in 2023 and 2024 suggests the potenti
 This  Query Shows the Countries with the Highest Death Count per Population
 ##### Query
 Query 9 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/dd088a3c-6e9e-44bb-8ad3-eb90da0aad3c)
 #####  Results Interpretation
 The United States leads with the highest death count, reflecting the pandemic's significant impact due to factors like population size and healthcare infrastructure. Brazil follows closely, highlighting the severity influenced by healthcare capacity and socioeconomic disparities. India's substantial death toll underscores the pandemic's impact, despite its large population. Other countries also face varying death counts, influenced by factors like healthcare capacity and government response. Interpreting these counts informs global strategies to combat the virus and allocate resources effectively.
 
@@ -142,6 +153,8 @@ The United States leads with the highest death count, reflecting the pandemic's 
 This  Query Shows the median age group of the population Impacted by COVID by country and for each year 
 ##### Query
 Query 10 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/75502f8b-e1bc-406d-a7d7-b9c711ef8814)
 #####  Results Interpretation
 The results reveal that the majority of individuals impacted by and deceased from COVID-19 have a median age that falls within two primary age brackets: "LESS THAN 40" and "BETWEEN 40 AND 65". This finding contrasts with the common perception that COVID-19 primarily affects older individuals. However, it suggests that while older age groups are indeed vulnerable, a significant proportion of cases and fatalities occur in younger and middle-aged populations, highlighting the importance of targeted interventions and preventive measures across all age demographics.
 
@@ -150,6 +163,8 @@ The results reveal that the majority of individuals impacted by and deceased fro
 This  Query Compares the Vaccinations status for each type of Economy using a double CTE, where the countries are categorized using the extreme poverty index and the  human development index, the categorization labels economic conditions as 'High Extreme Poverty' for extreme poverty rates >= 30%, 'Low Human Development Index' for human development index <= 0.5, and 'Moderate Economic Conditions' otherwise.
 ##### Query
 Query 11-1 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/a4c9d7a8-f06c-4bfb-a85a-a6f90823e44e)
 #####  Results Interpretation
 Moderate economic condition countries lead in vaccination efforts, receiving vaccines early in 2020 Compared to the high extreme poverty and low human development index countries who started vaccination campaigns in 2021, the results also show a significant acceleration in vaccination rates from 2021 to 2023. However, disparities persist, with lower rates in high extreme poverty and low human development index countries, possibly due to resource limitations. This underscores the need for equitable vaccine distribution strategies to address global health inequalities.
 
@@ -159,12 +174,14 @@ This  Query Shows the Percentage of the Population that has received at least on
 ##### Query
 Query 11-2 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
 
-#### 12. Vaccination Tracking
+#### 12. Vaccination Tracking View Insert
 ##### GOAL
 This  Query Shows the Rolling count of people vaccinated inserted in a view that could be used in later visualizations
 ##### Query
 Query 12 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
-#####  Results Interpretation
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/ba50e88b-d60c-4648-8a13-e26a59f62dba)
+
 
 
 #### 13. Year to Year Total Cases Evolution
@@ -172,6 +189,8 @@ Query 12 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Cov
 This  Query Shows a comparison for each country of the total cases year by year using Windows functions 
 ##### Query
 Query 13 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/ded32042-2d4e-41cd-8314-0b3e9e32eb55)
 #####  Results Interpretation
 The query reveals a notable trend: a surge in COVID-19 cases across most countries in 2020 and 2021, followed by a decline in subsequent years. This suggests a shift from pandemic escalation to control, possibly due to effective vaccination campaigns and public health interventions as discovered in the previous interpretations.
 
@@ -181,8 +200,9 @@ The query reveals a notable trend: a surge in COVID-19 cases across most countri
 This  Query Shows the count of months where the number of cases increased per country for each year
 ##### Query
 Query 14-1 in the Project File [SQL_Queries](https://github.com/amine-abdollah/Covid_SQL_QUERIES/blob/main/SQL_Queries.sql)
+##### Results Preview
+![image](https://github.com/amine-abdollah/Covid_SQL_QUERIES/assets/103480107/a4da26b2-cbfe-499d-818c-4997f43a1118)
 #####  Results Interpretation
-
 ###### Global Decline: 
 There appears to be a global decline in the query count of months where the number of cases increased. This is evidenced by the decreasing numbers across many countries over the years. This trend suggests that the occurrence of months with increasing case counts is decreasing globally.
 
