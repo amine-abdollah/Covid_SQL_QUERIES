@@ -144,95 +144,162 @@ Group by
 order by 
 	TotalDeathCount desc
 
---  Query 10-1: Total Population vs Vaccinations
--- Shows Percentage of Population that has recieved at least one Covid Vaccine
+--  Query 10: Covid Impact vs Age
+-- Shows the median age group of the population Impacted by Covid per country and per year 
 
-Select 
-	dea.continent,
-	dea.location, 
-	dea.date,
-	dea.population, 
-	vac.new_vaccinations, 
-	SUM(cast(vac.new_vaccinations as float)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
-From 
-	COVID..DEATHS dea
-Join 
-	COVID..Vaccination vac
-	On dea.location = vac.location
-	and dea.date = vac.date
-where
-	dea.continent is not null 
-	AND dea.Location LIKE '%United States%'
-order by
-	2,3
+SELECT
+    d.location,
+    YEAR(d.date) AS Year,
+    SUM(CAST(d.new_cases AS FLOAT)) / CAST(v.population AS FLOAT) AS yearly_infection_rate,
+    SUM(CAST(d.new_deaths AS FLOAT)) / CAST(v.population AS FLOAT) AS yearly_death_rate,
+    CASE
+        WHEN CAST(v.median_age AS FLOAT) >= 65 THEN '65>'
+		WHEN CAST(v.median_age AS FLOAT) BETWEEN 40 AND 65 THEN '40> and <=65'
+        ELSE '<40'
+    END AS age_group
+FROM
+    COVID..DEATHS d
+JOIN
+    COVID..Vaccination v ON d.location = v.location AND YEAR(d.date) = YEAR(v.date)
+WHERE
+     d.location IS NOT NULL
+GROUP BY
+    d.location,
+    YEAR(d.date),
+    v.population,
+    v.median_age
+ORDER BY
+    d.location,
+    YEAR(d.date);
 
---  Query 10-2: Total Population vs Vaccinations
--- Using CTE to perform Calculation on Partition By in previous query
+--  Query 11-1: Total Population vs Vaccinations
+-- Using  Double CTE to perform Calculation on Partition By in previous query
 
-With PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated)
-as
-(
-Select 
-	dea.continent,
-	dea.location, 
-	dea.date,
-	dea.population, 
-	vac.new_vaccinations, 
-	SUM(cast(vac.new_vaccinations as float)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
-From 
-	COVID..DEATHS dea
-Join 
-	COVID..Vaccination vac
-	On dea.location = vac.location
-	   and dea.date = vac.date
-where
-	dea.continent is not null 
-	and  dea.Location LIKE '%United States%'
+WITH EconomicVaccination AS (
+    SELECT
+        location,
+		population,
+        YEAR(date) AS Year,
+        CAST(extreme_poverty AS FLOAT) AS extreme_poverty,
+        CAST(human_development_index AS FLOAT) AS human_development_index,
+        CAST(total_vaccinations AS FLOAT) as total_vaccinations,
+        CAST(people_vaccinated AS FLOAT) as people_vaccinated,
+        CAST(people_fully_vaccinated AS FLOAT) as people_fully_vaccinated 
+    FROM
+        COVID..Vaccination
+    WHERE
+        location IS NOT NULL
+),
+
+EconomicVaccinationCondition AS (
+    SELECT
+        Location,
+        Year,
+        AVG(total_vaccinations)/max(population)  avg_total_vaccinations,
+        AVG(people_vaccinated)/max(population)  avg_people_vaccinated,
+        AVG(people_fully_vaccinated)/max(population)  avg_people_fully_vaccinated,
+        CASE
+            WHEN extreme_poverty >= 30 THEN 'High Extreme Poverty'
+            WHEN human_development_index <= 0.5 THEN 'Low Human Development Index'
+            ELSE 'Moderate Economic Conditions'
+        END AS economic_condition
+    FROM
+        EconomicVaccination
+    GROUP BY
+        Location,
+        Year,
+        extreme_poverty,
+        human_development_index
 )
-Select 
-	*, 
-	(RollingPeopleVaccinated/Population)*100 as porcentage_of_population_vaccinated
-From 
-	PopvsVac
 
---  Query 10-3: Total Population vs Vaccinations
--- Using Temp Table to perform Calculation on Partition By in previous query
+SELECT  
+    year,
+	economic_condition,
+    Avg(avg_total_vaccinations),
+    Avg(avg_people_vaccinated),
+    Avg(avg_people_fully_vaccinated)
+FROM
+    EconomicVaccinationCondition
+GROUP BY
+    economic_condition,
+    year
+ORDER BY
+    year,
+	economic_condition;
 
-DROP Table if exists #PercentPopulationVaccinated
-Create Table #PercentPopulationVaccinated
-(
-Continent nvarchar(255),
-Location nvarchar(255),
-Date datetime,
-Population numeric,
-New_vaccinations numeric,
-RollingPeopleVaccinated numeric
+--  Query 11-2: Total Population vs Vaccinations
+-- Including Temp Table to perform Calculation on Partition By in previous query
+
+-- Create the temporary table to store EconomicVaccination data
+CREATE TABLE #TempEconomicVaccination (
+    Location VARCHAR(255),
+	Year INT,
+    Population FLOAT,
+    ExtremePoverty FLOAT,
+    HumanDevelopmentIndex FLOAT,
+    TotalVaccinations FLOAT,
+    PeopleVaccinated FLOAT,
+    PeopleFullyVaccinated FLOAT
+);
+
+-- Insert data into the temporary table
+INSERT INTO #TempEconomicVaccination (Location, Year, Population, ExtremePoverty, HumanDevelopmentIndex, TotalVaccinations, PeopleVaccinated, PeopleFullyVaccinated)
+SELECT
+    location,
+	YEAR(date) AS Year,
+    CAST(population AS FLOAT) AS Population,
+    CAST(extreme_poverty AS FLOAT) AS ExtremePoverty,
+    CAST(human_development_index AS FLOAT) AS HumanDevelopmentIndex,
+    CAST(total_vaccinations AS FLOAT) AS TotalVaccinations,
+    CAST(people_vaccinated AS FLOAT) AS PeopleVaccinated,
+    CAST(people_fully_vaccinated AS FLOAT) AS PeopleFullyVaccinated
+FROM
+    COVID..Vaccination
+WHERE
+    location IS NOT NULL;
+
+-- Query using the temporary table to calculate EconomicVaccinationCondition
+WITH EconomicVaccinationCondition AS (
+    SELECT
+        Location,
+        Year,
+        AVG(TotalVaccinations) / MAX(Population) AS AvgTotalVaccinations,
+        AVG(PeopleVaccinated) / MAX(Population) AS AvgPeopleVaccinated,
+        AVG(PeopleFullyVaccinated) / MAX(Population) AS AvgPeopleFullyVaccinated,
+        CASE
+            WHEN ExtremePoverty >= 30 THEN 'High Extreme Poverty'
+            WHEN HumanDevelopmentIndex <= 0.5 THEN 'Low Human Development Index'
+            ELSE 'Moderate Economic Conditions'
+        END AS EconomicCondition
+    FROM
+        #TempEconomicVaccination
+    GROUP BY
+        Location,
+        Year,
+        ExtremePoverty,
+        HumanDevelopmentIndex
 )
 
-Insert into
-	#PercentPopulationVaccinated
-Select 
-	dea.continent, 
-	dea.location, 
-	dea.date, 
-	dea.population, 
-	vac.new_vaccinations,
-	SUM(cast(vac.new_vaccinations as float)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
-From 
-	COVID..DEATHS dea
-Join 
-	COVID..Vaccination vac
-	On dea.location = vac.location
-	and dea.date = vac.date
+-- Final query to get the desired result
+SELECT  
+    Year,
+	EconomicCondition AS Economic_Condition,
+    AVG(AvgTotalVaccinations) AS Avg_Total_Vaccinations,
+    AVG(AvgPeopleVaccinated) AS Avg_People_Vaccinated,
+    AVG(AvgPeopleFullyVaccinated) AS Avg_People_Fully_Vaccinated
+FROM
+    EconomicVaccinationCondition
+GROUP BY
+    Year,
+    EconomicCondition
+ORDER BY
+    Year,
+	EconomicCondition;
+-- Drop the temporary table after use
+DROP TABLE #TempEconomicVaccination;
 
 
-Select 
-	*, 
-	(RollingPeopleVaccinated/Population)*100
-From
-	#PercentPopulationVaccinated
-
---  Query 11: Vaccination Tracking
+--  Query 12: Vaccination Tracking
 -- Creating View to store data for later visualizations
 
 CREATE VIEW PercentPopulationVaccinated AS
@@ -258,7 +325,7 @@ Select
 from 
 	PercentPopulationVaccinated
 
---  Query 12:Year to Year Total Cases Evolution
+--  Query 13:Year to Year Total Cases Evolution
 -- comparing for each country of the total cases year by year using Windows functions 
 
 
@@ -293,7 +360,7 @@ ORDER BY
     Year;
 
 
---  Query 13-1. Monthly Increase Status
+--  Query 14-1. Monthly Increase Status
 -- the count of months where the number of cases increased per country for each year
 
 
@@ -325,7 +392,7 @@ GROUP BY
     location,
     Year;
 
---  Query 13-2. Monthly Increase Status Optimised Query
+--  Query 14-2. Monthly Increase Status Optimised Query
 -- the count of months where the number of cases increased per country for each year using an optimized query
 
 WITH CasesByMonth AS (
@@ -356,7 +423,3 @@ WHERE
 GROUP BY
     location,
     Year;
-
-
-
-
